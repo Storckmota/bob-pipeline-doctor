@@ -291,7 +291,7 @@ export default function Home() {
                     {i + 1}.
                   </span>
                   <span className="text-zinc-300 text-sm leading-relaxed">
-                    {step.replace(/^\d+\.\s/, "")}
+                    {step.replace(/^\d+\.\s*/, "")}
                   </span>
                 </li>
               ))}
