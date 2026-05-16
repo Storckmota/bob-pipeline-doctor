@@ -56,7 +56,7 @@ Bob understands the full repository context: which files changed, how they relat
 | Repository correlation | Bob identifies impacted files beyond what the log explicitly mentions |
 | Safe planning | Bob recommends read-only investigation commands and missing tests |
 | Development partner | Bob IDE was used throughout the hackathon to build this project |
-| Judging evidence | Exported session reports and screenshots are in `bob_sessions/` |
+| Judging evidence | Exported session reports and screenshots must be added to `bob_sessions/` before final submission |
 
 ## How Bob Shell Supports the Workflow
 

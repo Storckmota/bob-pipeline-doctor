@@ -14,12 +14,13 @@
 - [x] README for judges with Quick Start section
 - [x] "How This Works" section added to dashboard
 - [x] bob_sessions/ reminder callout added to dashboard
+- [x] bob_sessions/ README evidence guide added
 
 ## Next — Critical for Submission
 
 - [ ] Export IBM Bob IDE session reports → `bob_sessions/`
 - [ ] Capture Bob IDE screenshots → `bob_sessions/`
-- [ ] Test `npm run build` — verify no TypeScript errors
+- [x] Test `npm run build` — verify no TypeScript errors
 - [ ] Test dashboard at `localhost:3000` — verify all sections render
 - [ ] Practice 2-minute demo following `docs/demo-script.md`
 - [ ] Final submission checklist review
@@ -45,7 +46,7 @@ It reads controlled local fixtures only — no external APIs, no credentials req
 
 ## Submission Checklist
 
-- [ ] `npm run build` passes with no TypeScript errors
+- [x] `npm run build` passes with no TypeScript errors
 - [ ] `data/bob-remediation-report.json` populated with credible fixture content
 - [ ] `data/ci-failure.log` and `data/ci-runs.json` present
 - [ ] Local MCP server is documented and runnable (`npm run mcp:local-ci`)
