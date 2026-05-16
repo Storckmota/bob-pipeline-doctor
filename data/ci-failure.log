@@ -1,0 +1,75 @@
+2026-05-16T20:58:12Z [GitHub Actions] Workflow: CI / Checkout Validation
+2026-05-16T20:58:12Z [GitHub Actions] Repository: org/bob-pipeline-doctor
+2026-05-16T20:58:12Z [GitHub Actions] Branch: main
+2026-05-16T20:58:12Z [GitHub Actions] Commit: a3f7c91 (fix-checkout-status-handling)
+2026-05-16T20:58:12Z [GitHub Actions] Triggered by: push
+2026-05-16T20:58:12Z [GitHub Actions] Runner: ubuntu-22.04
+
+2026-05-16T20:58:13Z [checkout] Cloning repository...
+2026-05-16T20:58:14Z [checkout] ✔ Checkout complete
+
+2026-05-16T20:58:14Z [setup-node] Using Node.js 20.x
+2026-05-16T20:58:16Z [setup-node] ✔ Node.js setup complete
+
+2026-05-16T20:58:16Z [install] Running: npm ci
+2026-05-16T20:58:42Z [install] ✔ Dependencies installed (26s)
+
+2026-05-16T20:58:42Z [lint] Running: npm run lint
+2026-05-16T20:58:48Z [lint] ✔ Lint passed (0 errors, 0 warnings)
+
+2026-05-16T20:58:48Z [typecheck] Running: npm run typecheck
+2026-05-16T20:58:54Z [typecheck] ✔ TypeScript check passed
+
+2026-05-16T20:58:54Z [test] Running: npm test -- checkout
+2026-05-16T20:58:56Z [test]
+2026-05-16T20:58:56Z [test] > bob-pipeline-doctor@0.1.0 test
+2026-05-16T20:58:56Z [test] > vitest run checkout
+2026-05-16T20:58:56Z [test]
+2026-05-16T20:58:57Z [test]  FAIL  tests/checkout.test.ts
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test] ● Checkout API › should approve a confirmed payment transaction
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test]   expect(received).toBe(expected)
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test]   Expected: "approved"
+2026-05-16T20:58:57Z [test]   Received: "pending"
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test]   at Object.<anonymous> (tests/checkout.test.ts:47:32)
+2026-05-16T20:58:57Z [test]     44 |
+2026-05-16T20:58:57Z [test]     45 |   const result = validatePaymentStatus({ status: 'confirmed', amount: 99.99, currency: 'USD' })
+2026-05-16T20:58:57Z [test]     46 |   // confirmed is the terminal approved state from the payment provider
+2026-05-16T20:58:57Z [test]   > 47 |   expect(result.normalizedStatus).toBe('approved')
+2026-05-16T20:58:57Z [test]        |                                   ^
+2026-05-16T20:58:57Z [test]     48 |   expect(result.canProceed).toBe(true)
+2026-05-16T20:58:57Z [test]     49 | })
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test]  ✔ should reject a payment with status 'failed' (3ms)
+2026-05-16T20:58:57Z [test]  ✔ should reject a payment with status 'cancelled' (1ms)
+2026-05-16T20:58:57Z [test]  ✔ should reject a payment with status 'pending' (1ms)
+2026-05-16T20:58:57Z [test]  ✗ should approve a confirmed payment transaction (8ms)
+2026-05-16T20:58:57Z [test]  ✔ should handle missing status field gracefully (2ms)
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:57Z [test] Test Suites:  1 failed, 1 total
+2026-05-16T20:58:57Z [test] Tests:        1 failed, 4 passed, 5 total
+2026-05-16T20:58:57Z [test] Snapshots:    0 total
+2026-05-16T20:58:57Z [test] Run Time:     1.824s
+2026-05-16T20:58:57Z [test]
+2026-05-16T20:58:58Z [test] ✖ Process completed with exit code 1
+
+2026-05-16T20:58:58Z [GitHub Actions] ✖ Job "test" failed
+
+2026-05-16T20:58:58Z [GitHub Actions] Workflow failed: CI / Checkout Validation
+2026-05-16T20:58:58Z [GitHub Actions] Duration: 00:00:46
+
+2026-05-16T20:58:58Z [GitHub Actions] Affected files (from git diff HEAD~1):
+2026-05-16T20:58:58Z [GitHub Actions]   M  lib/payments/validatePaymentStatus.ts
+2026-05-16T20:58:58Z [GitHub Actions]   M  app/api/checkout/route.ts
+
+2026-05-16T20:58:58Z [GitHub Actions] Failure Summary:
+2026-05-16T20:58:58Z [GitHub Actions]   Test "should approve a confirmed payment transaction" failed
+2026-05-16T20:58:58Z [GitHub Actions]   validatePaymentStatus() returned 'pending' for input status='confirmed'
+2026-05-16T20:58:58Z [GitHub Actions]   Expected normalized status: 'approved'
+2026-05-16T20:58:58Z [GitHub Actions]   Received normalized status: 'pending'
+2026-05-16T20:58:58Z [GitHub Actions]
+2026-05-16T20:58:58Z [GitHub Actions]   Review: lib/payments/validatePaymentStatus.ts
+2026-05-16T20:58:58Z [GitHub Actions]   Related: app/api/checkout/route.ts, tests/checkout.test.ts

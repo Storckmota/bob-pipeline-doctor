@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "local-ci": {
+      "command": "node",
+      "args": ["mcp/local-ci-server.mjs"]
+    }
+  }
+}
