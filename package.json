@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "mcp:local-ci": "node mcp/local-ci-server.mjs"
+    "mcp:local-ci": "node mcp/local-ci-server.mjs",
+    "mcp:smoke": "node mcp/smoke-test-local-ci.mjs"
   },
   "dependencies": {
     "next": "16.2.6",
